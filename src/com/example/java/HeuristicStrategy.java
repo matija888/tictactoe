@@ -1,4 +1,4 @@
 package com.example.java;
 
-public class HeuristicStrategy {
+public class HeuristicStrategy extends Strategy {
 }
