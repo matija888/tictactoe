@@ -3,15 +3,25 @@ package com.example.java;
 import javax.swing.*;
 import java.awt.*;
 
-public class Strategy {
+public class TicTacToe {
 
-    private JButton[][] fields = new JButton[3][3];
-    private JLabel gameStatusText = new JLabel();
+    private static JButton[][] fields = new JButton[3][3];
+    private static JLabel gameStatusText = new JLabel();
+
+    protected StrategyType strategyType;
+
+    public StrategyType getStrategyType() {
+        return strategyType;
+    }
+
+    public void setStrategyType(StrategyType strategyType) {
+        this.strategyType = strategyType;
+    }
 
     private boolean gameOver = false;
-    String playerSign = "X";
+    static String playerSign = "X";
 
-    String computerSign = "O";
+    static String computerSign = "O";
 
     public boolean isGameOver() {
         return gameOver;
@@ -21,15 +31,15 @@ public class Strategy {
         this.gameOver = gameOver;
     }
 
-    public String getPlayerSign() {
+    public static String getPlayerSign() {
         return playerSign;
     }
 
-    public String getComputerSign() {
+    public static String getComputerSign() {
         return computerSign;
     }
 
-    public JButton[][] getFields() {
+    public static JButton[][] getFields() {
         return fields;
     }
 
@@ -37,11 +47,11 @@ public class Strategy {
         gameStatusText.setText(statusText);
     }
 
-    public JLabel getGameStatusText() {
+    public static JLabel getGameStatusText() {
         return gameStatusText;
     }
 
-    public boolean isWon(String sign) {
+    public static boolean isWon(String sign) {
         for(int row=0; row<3; row++) {
             for (int col=0; col<3; col++) {
                 if (fields[row][0].getText() == sign
